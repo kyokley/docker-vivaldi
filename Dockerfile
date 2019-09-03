@@ -1,3 +1,23 @@
+# Example usage:
+#     docker run --rm -d \
+#         --memory 4gb \
+#         --shm-size=2g \
+#         -v /etc/localtime:/etc/localtime:ro \
+#         -v /tmp/.X11-unix:/tmp/.X11-unix \
+#         -e DISPLAY=unix$DISPLAY \
+#         --security-opt seccomp:${HOME}/chrome_sec.json \
+#         --privileged \
+#         --device /dev/snd \
+#         -v /dev/shm:/dev/shm \
+#         --device /dev/net/tun \
+#         --cap-add=NET_ADMIN \
+#         -v ${HOME}/.cache/vivaldi:/home/vivaldi/.cache/vivaldi \
+#         -v ${HOME}/.config/vivaldi:/home/vivaldi/.config/vivaldi \
+#         -v ${HOME}/.vivaldi/pki:/home/vivaldi/.pki \
+#         -v ${HOME}/Downloads:/home/vivaldi/Downloads \
+#         --name vivaldi \
+#         kyokley/vivaldi
+
 FROM debian:stable-slim
 
 ENV HOME_DIR /home/vivaldi
